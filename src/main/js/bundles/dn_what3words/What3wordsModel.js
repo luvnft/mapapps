@@ -13,18 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-module.exports = {
-    apptitle: "map.apps 4 Sample",
-    map: {
-        esrisites: {
-            title: "Standorte der Esri Deutschland Gruppe",
-            popup: {
-                address: "Adresse",
-                contact: "Kontakt",
-                tel: "Telefon:",
-                mail: "Email:",
-                link: "Internet:"
-            }
-        }
-    }
-};
+import {declare} from "apprt-core/Mutable";
+
+const What3wordsModel = declare({
+
+    apiKey: "",
+
+});
+
+export default What3wordsModel;

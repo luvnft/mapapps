@@ -1,0 +1,99 @@
+{
+    "load": {
+        "bundleLocations": [
+            "localbundles",
+            "bundles"
+        ],
+        "allowedBundles": [
+            "system@^4.6.2",
+            "splashscreen@^4.6.2",
+            "templatelayout@^4.6.2",
+            "template-seasons@^4.6.2",
+            "theme-everlasting@^4.6.2",
+            "toolset@^4.6.2",
+            "map-init@^4.6.2",
+            "omnisearch@^4.6.2",
+            "banner@^4.6.2",
+            "dn_what3words"
+        ]
+    },
+    "bundles": {
+        "banner": {
+            "BannerWidget": {
+                "label": "Developer Network",
+                "image": "https://www.conterra.de/~/media/conterra/images/site_logos/conterra-logo.ashx",
+                "imagePosition": "above",
+                "link": "http://developernetwork.conterra.de"
+            }
+        },
+        "dn_what3words": {
+            "Config": {
+                "apiKey": ""
+            }
+        },
+        "omnisearch": {
+            "DrawHandler": {
+                "_symbolTable": {
+                    "point": {
+                        "url": "resource('${app}:images/mapMarker.png')",
+                        "width": 37,
+                        "height": 36,
+                        "xoffset": 0,
+                        "yoffset": -15,
+                        "type": "esriPMS"
+                    }
+                }
+            }
+        },
+        "map-init": {
+            "Config": {
+                "basemaps": [{
+                    "id": "streets",
+                    "basemap": "streets",
+                    "title": "Strassen",
+                    "selected": true
+                }],
+                "map": {
+                    "layers": [
+                    ]
+                },
+                "view": {
+                    "viewmode": "2D",
+                    "extent": {
+                        "xmin": 600000,
+                        "ymin": 5800000,
+                        "xmax": 1700000,
+                        "ymax": 7600000,
+                        "spatialReference": 3857
+                    }
+                }
+            }
+        },
+        "toolset": {
+            "ToolsetManager": {
+                "toolsets": [
+                    {
+                        "id": "defaultToolSet",
+                        "tools": ["searchToggleTool"],
+                        "registerWidget": {
+                            "widgetRole": "map_topleft"
+                        },
+                        "container": "ignore",
+                        "windowType": "container",
+                        "cssClass": "muted"
+                    },
+                    {
+                        "id": "popup",
+                        "tools": ["popupToggleTool"],
+                        "registerWidget": {
+                            "widgetRole": "map_bottomright"
+                        },
+                        "container": "ignore",
+                        "windowType": "container",
+                        "cssClass": "muted"
+                    }
+                ]
+            }
+        }
+    }
+}

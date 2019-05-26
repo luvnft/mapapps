@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
     <artifactId>mapapps-what3words</artifactId>
-    <version>4.6.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <repositories>
         <repository>
@@ -394,10 +394,10 @@
                             <goal>deployAppTemplate</goal>
                         </goals>
                         <configuration>
-                            <templateFile>${project.build.directory}/${project.artifactId}-sample-app.zip</templateFile>
+                            <templateFile>${project.build.directory}/${project.artifactId}-what3words-app.zip</templateFile>
                             <templateResources>
                                 <templateResource>
-                                    <directory>${js.build.outputPath}/apps/sample</directory>
+                                    <directory>${js.build.outputPath}/apps/what3words</directory>
                                     <includes>
                                         <include>**/*</include>
                                     </includes>
@@ -552,14 +552,14 @@
         <js.build.outputPath>${root.build.outputPath}/js</js.build.outputPath>
 
         <!-- JS lib versions -->
-        <mapapps.version>4.6.1</mapapps.version>
+        <mapapps.version>4.6.2</mapapps.version>
         <apprt.version>${mapapps.version}</apprt.version>
         <!-- java lib versions -->
         <ct.jsregistry.version>1.2.6</ct.jsregistry.version>
         <ct.jsrt-test.version>1.1.5</ct.jsrt-test.version>
 
         <!-- the default app, replaced in the *.html files to switch app names-->
-        <default.app.name>sample</default.app.name>
+        <default.app.name>what3words</default.app.name>
 
         <!-- don't do this in production configuration! This allows to go any http traffic over the /proxy endpoint -->
         <proxy.allowedServerUrls>http,*;</proxy.allowedServerUrls>
@@ -642,7 +642,7 @@
                             <timeout>60000</timeout>
                             <tests>
                                 <test>
-                                    http://localhost:${jetty.server.port}/resources/jsregistry/root/intern/latest/runner.html?boot=/js/tests/test-init.js&amp;test=sample_helloworld/tests/all
+                                    http://localhost:${jetty.server.port}/resources/jsregistry/root/intern/latest/runner.html?boot=/js/tests/test-init.js&amp;test=dn_what3words/tests/all
                                 </test>
                             </tests>
                         </configuration>
@@ -761,7 +761,7 @@
                                             <directory>${project.build.directory}</directory>
                                             <includes>
                                                 <include>${project.artifactId}-bundle.zip</include>
-                                                <include>${project.artifactId}-sample-app.zip</include>
+                                                <include>${project.artifactId}-what3words-app.zip</include>
                                                 <!--<include>${project.artifactId}*.tar.gz</include>-->
                                                 <include>${project.artifactId}*.zip</include>
                                             </includes>

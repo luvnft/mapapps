@@ -1,0 +1,106 @@
+{
+    "name": "dn_what3words",
+    "version": "1.0.0-SNAPSHOT",
+    "title": "what3words",
+    "description": "what3words",
+    "productName": "map.apps",
+    "main": "",
+    "i18n": [
+    ],
+    "dependencies": {
+        "esri": "^4.10.1",
+        "apprt-core": "^4.6.2",
+        "apprt-binding": "^4.6.2",
+        "ct": "^4.6.2",
+        "omnisearch": "^4.6.2"
+    },
+    "CSS-Themes-Extension": [{
+        "name": "*",
+        "files": ["styles/styles.css"]
+    }],
+    "components": [
+        {
+            "name": "Config",
+            "impl": "./What3wordsModel",
+            "provides": "what3words.What3wordsModel",
+            "propertiesConstructor": true,
+            "properties": {
+                "apiKey": ""
+            }
+        },
+        {
+            "name": "What3wordsStoreFactory",
+            "properties": {
+                "id": "What3wordsStore",
+                "useIn": [
+                    "omnisearch"
+                ],
+                "omniSearchTypingDelay": 200,
+                "omniSearchPageSize": 20,
+                "omniSearchSearchAttr": "title",
+                "omniSearchDefaultLabel": "///",
+                "-filterQuery": {},
+                "-filterOptions": {
+                    "suggestContains": true
+                }
+            },
+            "references": [{
+                "name": "model",
+                "providing": "what3words.What3wordsModel"
+            }]
+        },
+        {
+            "name": "PopupOmnisearchHandler",
+            "provides": ["ct.api.omnisearch.ResultHandler"],
+            "properties": {
+                "id": "PopupHandler",
+                "type": ["select", "clear"]
+            },
+            "references": [{
+                "name": "model",
+                "providing": "map-widget.MapWidgetModel"
+            }]
+        },
+        {
+            "name": "PopupToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "popupToggleTool",
+                "title": "what3words Location to address",
+                "tooltip": "what3words Location to address",
+                "iconClass": "icon-marker",
+                "toolRole": "toolset",
+                "togglable": true,
+                "activateHandler": "activateTool",
+                "deactivateHandler": "deactivateTool"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "editing.MapClickPopupHandler"
+                }
+            ]
+        },
+        {
+            "name": "MapClickPopupHandler",
+            "provides": [
+                "editing.MapClickPopupHandler"
+            ],
+            "propertiesConstructor": true,
+            "references": [
+                {
+                    "name": "mapWidgetModel",
+                    "providing": "map-widget.MapWidgetModel"
+                },
+                {
+                    "name": "what3wordsModel",
+                    "providing": "what3words.What3wordsModel"
+                }
+            ]
+        }
+    ]
+}
