@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
     <artifactId>mapapps-what3words</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <repositories>
         <repository>
@@ -530,7 +530,7 @@
         <developerConnection>scm:git:https://github.com/conterra/mapapps-what3words.git
         </developerConnection>
         <url>https://github.com/conterra/mapapps-what3words</url>
-        <tag>M2RELEASE-TAG-NaN</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <repository>
