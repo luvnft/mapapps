@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import ".";
-import "./What3wordsStoreFactory";
-import "./PopupOmnisearchHandler";
-import "./MapClickPopupHandler";
-import "./What3wordsModel";
+if (require.packs["@vue/test-utils"]) {
+    require.packs["@vue/test-utils"].main = "dist/vue-test-utils.umd";
+}
+if (require.packs["chai"]) {
+    require.packs["chai"].main = "chai";
+}
