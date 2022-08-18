@@ -87,6 +87,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- devnet -->
+        <dependency>
+            <groupId>de.conterra.devnet</groupId>
+            <artifactId>mapapps-welcome</artifactId>
+            <version>1.3.3-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>

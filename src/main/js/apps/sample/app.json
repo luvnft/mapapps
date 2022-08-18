@@ -15,6 +15,7 @@
             "omnisearch@^4.6.2",
             "banner@^4.6.2",
             "basemapswitcher",
+            "dn_welcome",
             "dn_what3words"
         ]
     },
