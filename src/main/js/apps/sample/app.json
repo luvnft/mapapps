@@ -14,6 +14,7 @@
             "map-init@^4.6.2",
             "omnisearch@^4.6.2",
             "banner@^4.6.2",
+            "basemapswitcher",
             "dn_what3words"
         ]
     },
@@ -46,14 +47,27 @@
                 }
             }
         },
+        "basemapswitcher": {
+            "Config": {
+                "nextBasemap": "streets"
+            }
+        },
         "map-init": {
             "Config": {
-                "basemaps": [{
-                    "id": "streets",
-                    "basemap": "streets",
-                    "title": "Strassen",
-                    "selected": true
-                }],
+                "basemaps": [
+                    {
+                        "id": "streets",
+                        "basemap": "streets-vector",
+                        "title": "Strassen",
+                        "selected": false
+                    },
+                    {
+                        "id": "satellite",
+                        "basemap": "satellite",
+                        "title": "Satellitenbilder",
+                        "selected": true
+                    }
+                ],
                 "map": {
                     "layers": [
                     ]
