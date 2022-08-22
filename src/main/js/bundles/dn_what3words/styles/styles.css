@@ -16,3 +16,33 @@
 .ctAppRoot.ctActiveTool_popupToggleTool .esri-view-root {
     cursor: crosshair;
 }
+
+.ctAppRoot .v-image__image--cover {
+    width: 250px !important;
+    height: 250px !important;
+}
+
+.ctAppRoot .dijitDialogPaneContent {
+    background-color: transparent !important;
+}
+
+.ctAppRoot .ctTool_popupToggleTool {
+    margin: 0;
+}
+
+/*.ctAppRoot .ctTool_popupToggleTool .dijitButtonNode {*/
+/*    background-color: #fff !important;*/
+/*}*/
+
+.ctAppRoot .ctTool_popupToggleTool .dijitButtonNode .ctToolIcon_popupToggleTool{
+    height: 47px;
+    width: 47px;
+    background: #fff url(./../images/w3w_logo.svg) no-repeat top left;
+    background-size: contain;
+}
+
+.ctAppRoot .ctTool_popupToggleTool .dijitButtonNode .dijitButtonText {
+    display:block;
+    font-size: 15px;
+    color: #f8f8f8;
+}
