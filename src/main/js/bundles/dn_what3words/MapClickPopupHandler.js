@@ -61,11 +61,11 @@ function MapClickPopupHandler() {
 
                 view.popup.open({
                     // Set the popup's title to the coordinates of the location
-                    title: "what3words for: [" + lon + ", " + lat + "]",
+                    title: "what3words für: [" + lon + ", " + lat + "]",
                     location: event.mapPoint // Set the location of the popup to the clicked location
                 });
 
-                let queryParams = {key, coordinates: `${latitude},${longitude}`};
+                let queryParams = {key, coordinates: `${latitude},${longitude}`, language: 'de'};
 
                 apprt_request(coordsUrl, {query: queryParams}).then(
                     (response) => {
