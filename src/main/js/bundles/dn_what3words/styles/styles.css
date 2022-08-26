@@ -34,15 +34,16 @@
 /*    background-color: #fff !important;*/
 /*}*/
 
-.ctAppRoot .ctTool_popupToggleTool .dijitButtonNode .ctToolIcon_popupToggleTool{
+.ctAppRoot .ctTool_popupToggleTool .dijitButtonNode .ctToolIcon_popupToggleTool {
     height: 47px;
     width: 47px;
-    background: #fff url(./../images/w3w_logo.svg) no-repeat top left;
+    background: url(./../images/w3w_logo.svg) no-repeat top left;
     background-size: contain;
 }
 
 .ctAppRoot .ctTool_popupToggleTool .dijitButtonNode .dijitButtonText {
-    display:block;
+    display: block;
     font-size: 15px;
-    color: #f8f8f8;
+    color: #45474d;
 }
+
