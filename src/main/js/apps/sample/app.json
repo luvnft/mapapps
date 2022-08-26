@@ -9,12 +9,13 @@
             "splashscreen@^4.6.2",
             "templatelayout@^4.6.2",
             "template-seasons@^4.6.2",
-            "theme-everlasting@^4.6.2",
+            "theme-autumn@^4.6.2",
             "toolset@^4.6.2",
             "map-init@^4.6.2",
             "omnisearch@^4.6.2",
             "banner@^4.6.2",
             "basemapswitcher",
+            "locator-store",
             "dn_welcome",
             "dn_what3words"
         ]
@@ -32,6 +33,26 @@
         "dn_what3words": {
             "Config": {
                 "apiKey": ""
+            }
+        },
+        "dn_welcome": {
+            "WelcomeWidgetFactory": {
+                "title": "Willkommen in der what3words-Demo",
+                "infoText": "Diese Demo zeigt die Nutzung der w3w Lokalisierungsmöglichkeiten in map.apps. Mit dem Werkzeug wird bei Klick in die Karte die entsprechende Drei-Wort-Adresse angezeigt. Zudem kann bei Eingabe einer Drei-Wort-Adresse in das Suchfeld der entsprechende Ort (ein 3x3m Quadrat) angezeigt werden.",
+                "buttonText": "Hinweis schließen",
+                "checkboxText": "Nicht erneut anzeigen",
+                "imgUrl": "resource('${app}:images/w3w_Symbol.png')",
+                "imgHeight": "250px",
+                "accept": false,
+                "expirationTime": 7,
+                "cookieName": "dn_welcome_hide"
+            }
+        },
+        "locator-store": {
+            "Config": {
+                "title": "Addresses and places",
+                "description": "Find addresses or places.",
+                "url": "@@locator.service.url@@"
             }
         },
         "omnisearch": {
@@ -89,24 +110,17 @@
             "ToolsetManager": {
                 "toolsets": [
                     {
-                        "id": "defaultToolSet",
-                        "tools": ["searchToggleTool"],
-                        "registerWidget": {
-                            "widgetRole": "map_topleft"
-                        },
-                        "container": "ignore",
-                        "windowType": "container",
-                        "cssClass": "muted"
-                    },
-                    {
                         "id": "popup",
-                        "tools": ["popupToggleTool"],
-                        "registerWidget": {
-                            "widgetRole": "map_bottomright"
-                        },
-                        "container": "ignore",
-                        "windowType": "container",
-                        "cssClass": "muted"
+                        "tools": [
+                            "popupToggleTool"
+                        ],
+                        "container": "map",
+                        "windowType": "fixed",
+                        "cssClass": "muted, notitle",
+                        "position": {
+                            "l": 22,
+                            "t": 120
+                        }
                     }
                 ]
             }
