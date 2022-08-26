@@ -39,6 +39,8 @@
                 "omniSearchPageSize": 20,
                 "omniSearchSearchAttr": "title",
                 "omniSearchDefaultLabel": "///",
+                "omniSearchPriority": 9999,
+                "omniSearchAutoActivate": true,
                 "-filterQuery": {},
                 "-filterOptions": {
                     "suggestContains": true
@@ -70,10 +72,10 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "popupToggleTool",
-                "title": "what3words Location to address",
-                "tooltip": "what3words Location to address",
-                "iconClass": "icon-marker",
+                "title": "w3w Adresse finden",
+                "tooltip": "w3w Adresse finden",
                 "toolRole": "toolset",
+                "iconClass": "",
                 "togglable": true,
                 "activateHandler": "activateTool",
                 "deactivateHandler": "deactivateTool"
