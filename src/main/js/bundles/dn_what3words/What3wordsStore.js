@@ -16,8 +16,8 @@
 import QueryResults from "dojo/store/util/QueryResults";
 import apprt_request from "apprt-request";
 import when from "apprt-core/when";
-import ComplexQuery from "ct/store/ComplexQuery";
-import Point from "esri/geometry/Point";
+import ComplexQuery from "ct/store/ComplexQuery";
+import Point from "esri/geometry/Point";
 
 const coordsUrl = "https://api.what3words.com/v3/convert-to-coordinates";
 const suggestUrl = "https://api.what3words.com/v3/autosuggest";
