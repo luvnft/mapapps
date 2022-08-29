@@ -520,10 +520,10 @@
         </plugins>
     </build>
     <scm>
-        <connection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git</connection>
-        <developerConnection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git
+        <connection>scm:git:https://github.com/conterra/mapapps-mapapps-what3words.git</connection>
+        <developerConnection>scm:git:https://github.com/conterra/mapapps-what3words.git
         </developerConnection>
-        <url>https://github.com/conterra/mapapps-remote-project-blueprint</url>
+        <url>https://github.com/conterra/mapapps-what3words</url>
         <tag>HEAD</tag>
     </scm>
     <distributionManagement>
