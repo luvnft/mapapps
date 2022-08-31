@@ -28,7 +28,7 @@ let suggestCallback = (response) => {
     response.suggestions.forEach( (suggest) => {
         results.push({
             id: suggest.words,
-            title: suggest.words
+            title: "///" + suggest.words + " (" + suggest.nearestPlace + ")"
         });
     });
 
