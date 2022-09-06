@@ -72,8 +72,8 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "popupToggleTool",
-                "title": "w3w Adresse finden",
-                "tooltip": "w3w Adresse finden",
+                "title": "w3w Adresse in der Karte identifizieren",
+                "tooltip": "w3w Adresse in der Karte identifizieren",
                 "toolRole": "toolset",
                 "iconClass": "",
                 "togglable": true,
