@@ -60,16 +60,17 @@ function MapClickPopupHandler() {
                 let lon = Math.round(longitude * 1000) / 1000;
 
                 view.popup.open({
-                    // Set the popup's title to the coordinates of the location
-                    title: "what3words für: [" + lon + ", " + lat + "]",
-                    location: event.mapPoint // Set the location of the popup to the clicked location
+                    // Set the location of the popup to the clicked location
+                    location: event.mapPoint,
+                    // Set the popup's content to the coordinates of the location
+                    content: "what3words für: [" + lon + ", " + lat + "]"
                 });
 
                 let queryParams = {key, coordinates: `${latitude},${longitude}`, language: 'de'};
 
                 apprt_request(coordsUrl, {query: queryParams}).then(
                     (response) => {
-                        view.popup.content = `///${response.words}`;
+                        view.popup.title = "///" + response.words;
                     }
                 ).catch((e) => {
                     console.warn("Geocoding failed: " + e.response.data.error.message);
