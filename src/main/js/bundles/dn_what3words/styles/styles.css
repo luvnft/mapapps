@@ -37,7 +37,7 @@
 .ctAppRoot .ctTool_popupToggleTool .dijitButtonNode .ctToolIcon_popupToggleTool {
     height: 47px;
     width: 47px;
-    background: url(./../images/w3w_logo.svg) no-repeat top left;
+    background: url(./../images/w3w_logo.svg) no-repeat center;
     background-size: contain;
 }
 
@@ -47,3 +47,8 @@
     color: #45474d;
 }
 
+.ctAppRoot .dijitHover .ctTool_popupToggleTool  .dijitButtonNode .dijitButtonText  {
+    display: block;
+    font-size: 15px;
+    color: #fff;
+}
