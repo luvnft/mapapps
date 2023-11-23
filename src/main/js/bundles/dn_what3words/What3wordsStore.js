@@ -64,7 +64,7 @@ let emptyResult = function () {
 class What3wordsStore {
 
     constructor(properties) {
-        this.key = properties.apiKey
+        this.key = properties.apiKey;
     }
 
     get(id, options) {

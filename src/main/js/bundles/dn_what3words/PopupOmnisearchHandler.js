@@ -65,16 +65,15 @@ function PopupOmnisearchHandler(){
                 title: "what3words",
                 location: item.geometry // Set the location of the popup to the clicked location
             });
-            view.popup.content = `///${item.title} <--> [${lon}, ${lat}]`
+            view.popup.content = `///${item.title} <--> [${lon}, ${lat}]`;
 
         },
 
         _clear: function () {
-           const view = this.model.get("view");
-           view && view.popup.close();
+            const view = this.model.get("view");
+            view && view.popup.close();
         }
-    }
-
+    };
 }
 
 export default PopupOmnisearchHandler;
