@@ -73,8 +73,8 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "popupToggleTool",
-                "title": "${tool.title}",
-                "tooltip": "${tool.tooltip}",
+                "title": "${root.tool.title}",
+                "tooltip": "${root.tool.tooltip}",
                 "toolRole": "toolset",
                 "iconClass": "",
                 "togglable": true,

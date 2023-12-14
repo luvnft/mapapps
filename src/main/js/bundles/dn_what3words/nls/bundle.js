@@ -18,6 +18,10 @@ module.exports = {
         tool: {
             tooltip: "Identify w3w address in the map",
             title: "Identify w3w address in the map"
+        },
+        popup: {
+            button: "Copy Adress",
+            tooltip: "Copied"
         }
     }),
     de: true
