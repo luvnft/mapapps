@@ -89,3 +89,6 @@
     height: 10px;
   }
 
+.ctAppRoot .esri-popup__main-container {
+    cursor: default;
+}
