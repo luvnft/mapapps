@@ -54,10 +54,10 @@ function MapClickPopupHandler() {
                     return;
                 }
 
-                let latitude = event.mapPoint.latitude;
-                let lat = Math.round(latitude * 1000) / 1000;
-                let longitude = event.mapPoint.longitude;
-                let lon = Math.round(longitude * 1000) / 1000;
+                const latitude = event.mapPoint.latitude;
+                const lat = Math.round(latitude * 1000) / 1000;
+                const longitude = event.mapPoint.longitude;
+                const lon = Math.round(longitude * 1000) / 1000;
 
                 view.popup.open({
                     // Set the location of the popup to the clicked location
@@ -66,7 +66,7 @@ function MapClickPopupHandler() {
                     content: "what3words für: [" + lon + ", " + lat + "]"
                 });
 
-                let queryParams = {key, coordinates: `${latitude},${longitude}`, language: 'de'};
+                const queryParams = {key, coordinates: `${latitude},${longitude}`, language: 'de'};
 
                 apprt_request(coordsUrl, {query: queryParams}).then(
                     (response) => {
@@ -74,13 +74,13 @@ function MapClickPopupHandler() {
                     }
                 ).catch((e) => {
                     console.warn("Geocoding failed: " + e.response.data.error.message);
-                })
+                });
 
             });
         },
         deactivateTool: cleanup,
         deactivate: cleanup
-    }
+    };
 
 }
 

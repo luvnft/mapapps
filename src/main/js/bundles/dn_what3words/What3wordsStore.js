@@ -23,8 +23,8 @@ const coordsUrl = "https://api.what3words.com/v3/convert-to-coordinates";
 const suggestUrl = "https://api.what3words.com/v3/autosuggest";
 const regex = /^\/{0,}[^0-9`~!@#$%^&*()+\-_=[{\]}\\|'<,.>?/";:£§º©®\s]{1,}[・.。][^0-9`~!@#$%^&*()+\-_=[{\]}\\|'<,.>?/";:£§º©®\s]{1,}[・.。][^0-9`~!@#$%^&*()+\-_=[{\]}\\|'<,.>?/";:£§º©®\s]{1,}$/i;
 
-let suggestCallback = (response) => {
-    let results = [];
+const suggestCallback = (response) => {
+    const results = [];
     response.suggestions.forEach( (suggest) => {
         results.push({
             id: suggest.words,
@@ -36,10 +36,10 @@ let suggestCallback = (response) => {
     return results;
 };
 
-let getCallback = (response) => {
-    let results = [];
+const getCallback = (response) => {
+    const results = [];
 
-    let coordinate = new Point({
+    const coordinate = new Point({
         longitude: response.coordinates.lng,
         latitude: response.coordinates.lat,
         wkid: 4326
@@ -55,8 +55,8 @@ let getCallback = (response) => {
     return results;
 };
 
-let emptyResult = function () {
-    let results = [];
+const emptyResult = function () {
+    const results = [];
     results.total = results.length;
     return QueryResults(results);
 };
@@ -64,7 +64,7 @@ let emptyResult = function () {
 class What3wordsStore {
 
     constructor(properties) {
-        this.key = properties.apiKey
+        this.key = properties.apiKey;
     }
 
     get(id, options) {
@@ -88,7 +88,7 @@ class What3wordsStore {
 
     query(query, queryopts) {
 
-        let ast = ComplexQuery.parse(query, queryopts).ast;
+        const ast = ComplexQuery.parse(query, queryopts).ast;
         let value = ast.root().v;
 
         if(value.indexOf("///") === 0){
@@ -100,14 +100,14 @@ class What3wordsStore {
             return emptyResult();
         }
 
-        let key = this.key;
+        const key = this.key;
 
-        if(key === ""){
+        if (key === ""){
             console.warn("API key for what3words is empty");
             return emptyResult();
         }
 
-        let queryParams = { key };
+        const queryParams = { key };
         let targetUrl = suggestUrl;
         let callback = suggestCallback;
 
@@ -120,7 +120,7 @@ class What3wordsStore {
             queryParams.input=value;
         }
 
-        let promise = when(
+        const promise = when(
             apprt_request(targetUrl, {query: queryParams}).then(callback).catch((e) => {
                 console.warn("Geocoding failed: " + e.response.data.error.message);
                 return emptyResult();

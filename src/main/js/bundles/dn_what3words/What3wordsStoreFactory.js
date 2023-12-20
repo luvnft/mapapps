@@ -19,7 +19,7 @@ function What3wordsStoreFactory() {
     let _registration;
 
     function _unregisterStore() {
-        let reg = _registration;
+        const reg = _registration;
         _registration = undefined;
         if (reg) {
             reg.unregister();
@@ -31,10 +31,10 @@ function What3wordsStoreFactory() {
             this._initStore();
         },
         _initStore() {
-            let props = this._properties;
+            const props = this._properties;
             props.apiKey = this.model.get("apiKey");
-            let store = new What3wordsStore(props);
-            _registration = this._componentContext.getBundleContext().registerService(["ct.api.Store"], store, props)
+            const store = new What3wordsStore(props);
+            _registration = this._componentContext.getBundleContext().registerService(["ct.api.Store"], store, props);
         },
         deactivate() {
             _unregisterStore();

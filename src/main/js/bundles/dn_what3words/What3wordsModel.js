@@ -16,9 +16,7 @@
 import {declare} from "apprt-core/Mutable";
 
 const What3wordsModel = declare({
-
-    apiKey: "",
-
+    apiKey: ""
 });
 
 export default What3wordsModel;
