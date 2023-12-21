@@ -57,8 +57,8 @@ function PopupOmnisearchHandler(){
             const view = mapWidgetModel.get("view");
 
 
-            let lat = Math.round(item.geometry.latitude * 1000) / 1000;
-            let lon = Math.round(item.geometry.longitude * 1000) / 1000;
+            const lat = Math.round(item.geometry.latitude * 1000) / 1000;
+            const lon = Math.round(item.geometry.longitude * 1000) / 1000;
 
             view.popup.open({
                 // Set the popup's title to the coordinates of the location
