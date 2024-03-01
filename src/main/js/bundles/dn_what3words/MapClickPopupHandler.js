@@ -108,7 +108,7 @@ function MapClickPopupHandler(i18n) {
                     (response) => {
                         view.popup.title = "<div class='tooltip'> "
                         + "<span class='tooltiptext'>"+ i18n.popup.tooltip +"</span>"
-                        + "<span class=popupTitle> ///" + response.words + '</span></div>';
+                        + "<span class=popupTitle>///" + response.words + '</span></div>';
                     }
                 ).catch((e) => {
                     console.warn("Geocoding failed: " + e.response.data.error.message);
