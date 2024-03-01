@@ -16,7 +16,8 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
@@ -45,11 +46,6 @@
                 <version>${mapapps.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>de.conterra.mapapps</groupId>
-                <artifactId>ct-mapapps-js</artifactId>
-                <version>${mapapps.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -92,6 +88,11 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>de.conterra.mapapps</groupId>
+                    <artifactId>mapapps-maven-plugin</artifactId>
+                    <version>${mapapps.version}</version>
+                </plugin>
                 <plugin>
                     <groupId>de.conterra.jsregistry</groupId>
                     <artifactId>ct-jsregistry-maven-plugin</artifactId>
@@ -144,10 +145,9 @@
                 <plugin>
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
-                    <version>1.12.1</version>
+                    <version>1.14.2</version>
                     <configuration>
-                        <nodeVersion>v18.13.0</nodeVersion>
-                        <npmVersion>8.19.3</npmVersion>
+                        <nodeVersion>v20.9.0</nodeVersion>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -172,11 +172,6 @@
                     <groupId>de.conterra.maven</groupId>
                     <artifactId>setproperties-maven-plugin</artifactId>
                     <version>1.0.2</version>
-                </plugin>
-                <plugin>
-                    <groupId>de.conterra.jsrt</groupId>
-                    <artifactId>ct-jsrt-test-maven-plugin</artifactId>
-                    <version>${ct.jsrt-test.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -215,9 +210,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!-- add here properties which are used in plugin configuration resolution -->
                     <properties>
-                        <!-- deployment of map.apps installation -->
                         <mapapps.remote.base>.</mapapps.remote.base>
                     </properties>
                 </configuration>
@@ -225,7 +218,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.11.0</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -233,7 +226,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.5.0</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -241,6 +234,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>unpack-themes-src</id>
@@ -343,6 +337,9 @@
                         <include>**/gulpfile.js</include>
                         <include>**/pom.xml</include>
                     </includes>
+                    <excludes>
+                        <exclude>src/main/js/**/*.min.js</exclude>
+                    </excludes>
                     <mapping>
                         <vue>XML_STYLE</vue>
                     </mapping>
@@ -409,6 +406,12 @@
             <plugin>
                 <groupId>de.conterra.mapapps</groupId>
                 <artifactId>mapapps-maven-plugin</artifactId>
+                <configuration>
+                    <!-- only build zip files -->
+                    <skipDeploy>true</skipDeploy>
+                    <sourceDirectory>${js.build.outputPath}/apps</sourceDirectory>
+                    <outputDirectory>${project.build.directory}</outputDirectory>
+                </configuration>
                 <executions>
                     <execution>
                         <!-- used to create .zip files containing the apps during the build -->
@@ -436,13 +439,6 @@
                         </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <!-- only build zip files -->
-                    <skipDeploy>true</skipDeploy>
-                    <createApp>false</createApp>
-                    <sourceDirectory>${js.build.outputPath}/apps</sourceDirectory>
-                    <outputDirectory>${project.build.directory}</outputDirectory>
-                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -496,15 +492,16 @@
         <root.build.outputPath>${project.build.directory}/webapp</root.build.outputPath>
         <js.build.outputPath>${root.build.outputPath}/js</js.build.outputPath>
 
-        <mapapps.version>4.15.1</mapapps.version>
+        <mapapps.version>4.17.0</mapapps.version>
+        <vuetify.version>1.5.28</vuetify.version>
         <!-- JS lib versions -->
         <apprt.version>${mapapps.version}</apprt.version>
         <!-- java lib versions -->
-        <ct.jsregistry.version>1.5.10</ct.jsregistry.version>
+        <ct.jsregistry.version>2.0.1</ct.jsregistry.version>
         <ct.jsrt-test.version>2.0.2</ct.jsrt-test.version>
 
         <!-- the default app, replaced in the *.html files to switch app names-->
-        <default.app.name>sample</default.app.name>
+        <default.app.name>Demo</default.app.name>
 
         <!-- don't do this in production configuration! This allows to go any http traffic over the
         /proxy endpoint -->
@@ -561,6 +558,11 @@
                 <dependency>
                     <groupId>com.esri.js</groupId>
                     <artifactId>ags-js-api4</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.esri</groupId>
+                    <artifactId>terraformer-js</artifactId>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
@@ -666,12 +668,6 @@
             <build>
                 <plugins>
                     <plugin>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <configuration>
-                            <updateReleaseInfo>true</updateReleaseInfo>
-                        </configuration>
-                    </plugin>
-                    <plugin>
                         <groupId>de.conterra.jsregistry</groupId>
                         <artifactId>ct-jsregistry-maven-plugin</artifactId>
                         <executions>
@@ -713,8 +709,6 @@
                         <configuration>
                             <skipDeploy>${skip.apps.upload}</skipDeploy>
                             <deployAsApp>true</deployAsApp>
-                            <appName>${project.artifactId}</appName>
-                            <appTitle>${project.artifactId}-${project.version}</appTitle>
                             <appEditorState>PUBLISHED</appEditorState>
                             <serverResourcesEndpoint>${mapapps.remote.base}/resources</serverResourcesEndpoint>
                             <username>${mapapps.user}</username>
