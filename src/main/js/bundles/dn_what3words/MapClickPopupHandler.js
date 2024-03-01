@@ -23,7 +23,7 @@ function MapClickPopupHandler(i18n) {
     let _clickHandle;
     let mapWidgetModel;
     let key;
-    i18n = i18n._i18n.get().root;
+    i18n = i18n._i18n.get();
 
     function cleanup() {
         _clear();
