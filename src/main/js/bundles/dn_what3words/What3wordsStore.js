@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import QueryResults from "dojo/store/util/QueryResults";
+import QueryResults from "store-api/QueryResults";
 import apprt_request from "apprt-request";
 import when from "apprt-core/when";
-import ComplexQuery from "ct/store/ComplexQuery";
+import ComplexQuery from "store-api/ComplexQuery";
 import Point from "esri/geometry/Point";
 
 const coordsUrl = "https://api.what3words.com/v3/convert-to-coordinates";
