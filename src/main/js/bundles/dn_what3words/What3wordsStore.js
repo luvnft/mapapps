@@ -21,6 +21,7 @@ import Point from "esri/geometry/Point";
 
 const coordsUrl = "https://api.what3words.com/v3/convert-to-coordinates";
 const suggestUrl = "https://api.what3words.com/v3/autosuggest";
+// eslint-disable-next-line max-len
 const regex = /^\/{0,}[^0-9`~!@#$%^&*()+\-_=[{\]}\\|'<,.>?/";:£§º©®\s]{1,}[・.。][^0-9`~!@#$%^&*()+\-_=[{\]}\\|'<,.>?/";:£§º©®\s]{1,}[・.。][^0-9`~!@#$%^&*()+\-_=[{\]}\\|'<,.>?/";:£§º©®\s]{1,}$/i;
 
 const suggestCallback = (response) => {
