@@ -3,7 +3,7 @@
     "version": "1.0.4-SNAPSHOT",
     "title": "what3words",
     "description": "what3words",
-    "productName": "map.apps",
+    "productName": "devnet-mapapps-what3words",
     "main": "",
     "i18n": [
         "bundle"
